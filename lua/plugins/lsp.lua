@@ -37,6 +37,7 @@ return {
       emmet_ls = {
         filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
       },
+      eslint_d = {}
     }
     local on_attach = function(_, bufnr)
       -- Enable completion triggered by <c-x><c-o>

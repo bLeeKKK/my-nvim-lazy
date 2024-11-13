@@ -23,11 +23,14 @@ return {
     { '<leader>fw', "<cmd>lua require('telescope.builtin').live_grep()<cr>", desc = "文本查找" },
     { '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<cr>", desc = "帮助文档查找" },
     { '<leader>fp', "<cmd>lua require('telescope.builtin').builtin()<cr>", desc = "查找功能目录查找" },
-    { '<leader>fm', "<cmd>lua require('telescope.builtin').marks()<cr>" },
+    { '<leader>fm', "<cmd>lua require('telescope.builtin').marks()<cr>" , desc = "标记查找"}, -- m 开启标记：例：ma 此处标记为 a
     { '<leader>qf', "<cmd>lua require('telescope.builtin').quickfix()<cr>" },
     { '<leader>km', "<cmd>lua require('telescope.builtin').keymaps()<cr>" },
     { '<c-p>', "<cmd>lua require('telescope.builtin').commands()<cr>" },
-    { '<leader>gc', "<cmd>lua require('telescope.builtin').keymaps()<cr>" },
+    { '<leader>gc', "<cmd>Telescope git_commits<cr>", desc = "查看所有commit列表" },
+    { '<leader>gfc', "<cmd>Telescope git_bcommits<cr>", desc = "查看当前文件commit列表" },
+    { '<leader>gb', "<cmd>Telescope git_branches<cr>", desc = "查看所有分支" },
+    { '<leader>gs', "<cmd>Telescope git_status<cr>", desc = "查看使用diff预览列出每个文件的当前更改" },
   },
   config = function()
     require('telescope').setup {
