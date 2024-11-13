@@ -32,21 +32,26 @@ keymap.set({ "n", "i", "v" }, "<Up>", "<Nop>")
 keymap.set({ "n", "i", "v" }, "<Down>", "<Nop>")
 
 keymap.set("n", "<C-b>n", ":BufferLineCycleNext<CR>")
+keymap.set("n", "<C-Tab>", ":BufferLineCycleNext<CR>")
 keymap.set("n", "<C-b>p", ":BufferLineCyclePrev<CR>")
--- keymap.set("n", "<C-b>q", ":q<CR>") -- 关闭当前窗口
-keymap.set("n", "<C-b>q", ":Bdelete<CR>")                    -- 关闭当前buf
--- keymap.set("n", "<C-b>a", ":bufdo :Bdelete<CR>") -- 关闭全部
-keymap.set("n", "<C-b>o", ":BufferLineCloseOthers<CR>")      -- 关闭全部
-keymap.set("n", "<C-b>p", ":BufferLinePick<CR>")             -- pick切换
-keymap.set("n", "<C-b>1", "<Cmd>BufferLineGoToBuffer 1<CR>") -- 跳转到窗口1
-keymap.set("n", "<C-b>2", "<Cmd>BufferLineGoToBuffer 2<CR>") -- 跳转到窗口2
-keymap.set("n", "<C-b>3", "<Cmd>BufferLineGoToBuffer 3<CR>") -- 跳转到窗口3
-keymap.set("n", "<C-b>4", "<Cmd>BufferLineGoToBuffer 4<CR>") -- 跳转到窗口4
-keymap.set("n", "<C-b>5", "<Cmd>BufferLineGoToBuffer 5<CR>") -- 跳转到窗口5
-keymap.set("n", "<C-b>6", "<Cmd>BufferLineGoToBuffer 6<CR>") -- 跳转到窗口6
-keymap.set("n", "<C-b>7", "<Cmd>BufferLineGoToBuffer 7<CR>") -- 跳转到窗口7
-keymap.set("n", "<C-b>8", "<Cmd>BufferLineGoToBuffer 8<CR>") -- 跳转到窗口8
-keymap.set("n", "<C-b>9", "<Cmd>BufferLineGoToBuffer 9<CR>") -- 跳转到窗口9
+keymap.set("n", "<C-S-Tab>", ":BufferLineCyclePrev<CR>")
+keymap.set("n", "<C-w>", ":Bdelete<CR>")                    -- 关闭当前buf
+keymap.set("n", "<leader>bo", ":BufferLineCloseOthers<CR>")      -- 关闭全部
+keymap.set("n", "<leader>p", ":BufferLinePick<CR>")             -- pick切换
+keymap.set("n", "<leader>b1", "<Cmd>BufferLineGoToBuffer 1<CR>") -- 跳转到窗口1
+keymap.set("n", "<leader>b2", "<Cmd>BufferLineGoToBuffer 2<CR>") -- 跳转到窗口2
+keymap.set("n", "<leader>b3", "<Cmd>BufferLineGoToBuffer 3<CR>") -- 跳转到窗口3
+keymap.set("n", "<leader>b4", "<Cmd>BufferLineGoToBuffer 4<CR>") -- 跳转到窗口4
+keymap.set("n", "<leader>b5", "<Cmd>BufferLineGoToBuffer 5<CR>") -- 跳转到窗口5
+keymap.set("n", "<leader>b6", "<Cmd>BufferLineGoToBuffer 6<CR>") -- 跳转到窗口6
+keymap.set("n", "<leader>b7", "<Cmd>BufferLineGoToBuffer 7<CR>") -- 跳转到窗口7
+keymap.set("n", "<leader>b8", "<Cmd>BufferLineGoToBuffer 8<CR>") -- 跳转到窗口8
+keymap.set("n", "<leader>b9", "<Cmd>BufferLineGoToBuffer 9<CR>") -- 跳转到窗口9
+
+keymap.set("n", "<leader>wp", "<C-w>p") -- 窗口跳转
+keymap.set("n", "<leader>wv", "<C-w>v") -- 打开横向窗口
+keymap.set("n", "<leader>ws", "<C-w>s") -- 打开竖向窗口
+keymap.set("n", "<C-q>", "<C-w>q") -- 打开竖向窗口
 
 keymap.set("n", "<C-t>c", ":tabnew<CR>")                     -- open new tab
 keymap.set("n", "<C-t>q", ":tabclose<CR>")                   -- close current tab

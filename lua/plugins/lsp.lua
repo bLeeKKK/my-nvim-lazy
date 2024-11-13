@@ -34,7 +34,9 @@ return {
       html = {},
       cssls = {},
       tailwindcss = {},
-      emmet_ls = {},
+      emmet_ls = {
+        filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
+      },
     }
     local on_attach = function(_, bufnr)
       -- Enable completion triggered by <c-x><c-o>
@@ -60,13 +62,13 @@ return {
       nmap('<leader>rn', "<cmd>Lspsaga rename ++project<cr>", '[R]e[n]ame')
       nmap('<leader>ca', "<cmd>Lspsaga code_action<CR>", '[C]ode [A]ction')
       nmap('<leader>da', require "telescope.builtin".diagnostics, '[D]i[A]gnostics')
-      nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+      -- nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
       -- nmap('gr', vim.lsp.buf.references, '[G]oto [R]eferences')
-      nmap("<A-f>", function()
+      nmap("<S-A-f>", function()
         vim.lsp.buf.format {}
         vim.api.nvim_command('write')
       end, "[F]ormat code")
-      nmap("<S-A-f>", function()
+      nmap("<A-f>", function()
         vim.lsp.buf.format {
           async = true
         }

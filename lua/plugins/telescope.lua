@@ -19,14 +19,15 @@ return {
         })
       end
     },
-    { '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<cr>" },
-    { '<leader>fw', "<cmd>lua require('telescope.builtin').live_grep()<cr>" },
-    { '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<cr>" },
-    { '<leader>fp', "<cmd>lua require('telescope.builtin').builtin()<cr>" },
+    { '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<cr>", desc = "文件查找" },
+    { '<leader>fw', "<cmd>lua require('telescope.builtin').live_grep()<cr>", desc = "文本查找" },
+    { '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<cr>", desc = "帮助文档查找" },
+    { '<leader>fp', "<cmd>lua require('telescope.builtin').builtin()<cr>", desc = "查找功能目录查找" },
     { '<leader>fm', "<cmd>lua require('telescope.builtin').marks()<cr>" },
     { '<leader>qf', "<cmd>lua require('telescope.builtin').quickfix()<cr>" },
     { '<leader>km', "<cmd>lua require('telescope.builtin').keymaps()<cr>" },
-    { '<c-p>',      "<cmd>lua require('telescope.builtin').commands()<cr>" },
+    { '<c-p>', "<cmd>lua require('telescope.builtin').commands()<cr>" },
+    { '<leader>gc', "<cmd>lua require('telescope.builtin').keymaps()<cr>" },
   },
   config = function()
     require('telescope').setup {

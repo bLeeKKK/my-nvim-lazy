@@ -3,8 +3,8 @@ return {
   keys = {
     { '<leader>tf', "<Cmd>ToggleTerm direction=float<CR>", desc = "打开浮动终端" },
     { '<leader>tb', "<Cmd>ToggleTerm direction=horizontal<CR>", desc = "打开底部终端" },
-    { '<Esc><Esc>', "<C-\\><C-n>", mode = { "t" }, desc = "退出终端模式" },
-    { '<Esc><Esc><Esc>', "<C-\\><C-n><C-w>q", mode = { "t" }, desc = "关闭终端" },
+    { '<Esc>', "<C-\\><C-n>", mode = { "t" }, desc = "退出终端模式" },
+    { '<Esc><Esc>', "<C-\\><C-n><C-w>q", mode = { "t" }, desc = "关闭终端" },
     { "<leader>gg", ":lua _toggle_lazygit()<CR>"}
   },
   opts = {

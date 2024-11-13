@@ -217,9 +217,22 @@ return {
     config = true,
   },
   {
-    "echasnovski/mini.comment",
-    config = true,
+    -- 注释
+    'numToStr/Comment.nvim',
+    dependencies = {
+      "JoosepAlviste/nvim-ts-context-commentstring"
+    },
+    config = function()
+      -- jsx tsx 补充注释
+      require("Comment").setup({
+        pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+      })
+    end
   },
+  -- {
+  --   "echasnovski/mini.comment",
+  --   config = true,
+  -- },
   {
     -- nvim 窗口功能优化
     "s1n7ax/nvim-window-picker",
@@ -228,7 +241,7 @@ return {
         filter_rules = {
           include_current_win = true,
           bo = {
-            filetype = { "fidget", "neo-tree" }
+            filetype = { "fidget", "neo-tree", "NvimTree" }
           }
         }
       })
@@ -319,6 +332,7 @@ return {
     }
   },
   {
+    -- 颜色文字着色
     "NvChad/nvim-colorizer.lua",
     opts = {
       filetypes = { "*" },
@@ -347,5 +361,59 @@ return {
       -- all the sub-options of filetypes apply to buftypes
       buftypes = {},
     }
-  }
+  },
+  {
+    -- 处理包裹字符
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    -- event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
+    end
+  },
+  {
+    -- 窗口最大化
+    "szw/vim-maximizer",
+    keys = {
+      { "<leader>sm", ":MaximizerToggle<CR>", desc = "buffer 最大化" },
+    }
+  },
+  {
+    -- 窗口快速移动
+    "christoomey/vim-tmux-navigator",
+  },
+  {
+    -- % 快速移动扩展
+    "andymass/vim-matchup",
+    keys = {
+      -- keymap.set("n", "<Tab>", "<Plug>(matchup-%)")
+      { "<Tab>", mode = { "n", "v", }, "<Plug>(matchup-%)", desc = "块快速跳转" },
+      { "<S-Tab>", mode = { "n", "v", }, "<Plug>(matchup-g%)", desc = "块快速返跳转" },
+    },
+    config = function()
+      -- 可选的自定义配置
+      vim.g.matchup_matchparen_offscreen = { method = "popup" }
+      vim.g.matchup_highlight_enabled = 1
+    end,
+    event = "VeryLazy" -- 优化加载速度
+  },
+  {
+    -- p 粘贴增强版本
+    "inkarkat/vim-ReplaceWithRegister",
+    keys = {
+      -- "gr", "grr"
+      { "gr", mode = { "n", "v", }, "<Plug>ReplaceWithRegister", desc = "粘贴模式" },
+      { "grr", mode = { "n", "v", }, "<Plug>ReplaceWithRegisterVisual", desc = "粘贴整行" },
+    },
+    -- config = function()
+    --   -- 可选：你可以在这里添加更多自定义配置
+    --   -- 例如：映射快捷键到插入模式或特定模式
+    --   vim.api.nvim_set_keymap('n', 'gr', '<Plug>ReplaceWithRegister', { noremap = false, silent = true })
+    --   vim.api.nvim_set_keymap('x', 'gr', '<Plug>ReplaceWithRegisterVisual', { noremap = false, silent = true })
+    -- end,
+    lazy = true, -- 设置为延迟加载（按需加载）
+  },
+  { "jose-elias-alvarez/typescript.nvim" }
 }
