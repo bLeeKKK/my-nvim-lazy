@@ -31,12 +31,13 @@ keymap.set({ "n", "i", "v" }, "<Right>", "<Nop>")
 keymap.set({ "n", "i", "v" }, "<Up>", "<Nop>")
 keymap.set({ "n", "i", "v" }, "<Down>", "<Nop>")
 
-keymap.set("n", "<C-b>n", ":BufferLineCycleNext<CR>")
+-- keymap.set("n", "<C-b>n", ":BufferLineCycleNext<CR>")
 keymap.set("n", "<C-Tab>", ":BufferLineCycleNext<CR>")
-keymap.set("n", "<C-b>p", ":BufferLineCyclePrev<CR>")
+-- keymap.set("n", "<C-b>p", ":BufferLineCyclePrev<CR>")
 keymap.set("n", "<C-S-Tab>", ":BufferLineCyclePrev<CR>")
+-- keymap.set('n', '<C-w>', '<Nop>', { noremap = true, silent = true }) -- 取消默认<C-w>
 keymap.set("n", "<C-w>", ":Bdelete<CR>")                    -- 关闭当前buf
-keymap.set("n", "<leader>bo", ":BufferLineCloseOthers<CR>")      -- 关闭全部
+keymap.set("n", "<C-o>", ":BufferLineCloseOthers<CR>")      -- 关闭全部
 keymap.set("n", "<leader>p", ":BufferLinePick<CR>")             -- pick切换
 keymap.set("n", "<leader>b1", "<Cmd>BufferLineGoToBuffer 1<CR>") -- 跳转到窗口1
 keymap.set("n", "<leader>b2", "<Cmd>BufferLineGoToBuffer 2<CR>") -- 跳转到窗口2
@@ -48,10 +49,10 @@ keymap.set("n", "<leader>b7", "<Cmd>BufferLineGoToBuffer 7<CR>") -- 跳转到窗
 keymap.set("n", "<leader>b8", "<Cmd>BufferLineGoToBuffer 8<CR>") -- 跳转到窗口8
 keymap.set("n", "<leader>b9", "<Cmd>BufferLineGoToBuffer 9<CR>") -- 跳转到窗口9
 
-keymap.set("n", "<leader>wp", "<C-w>p") -- 窗口跳转
-keymap.set("n", "<leader>wv", "<C-w>v") -- 打开横向窗口
-keymap.set("n", "<leader>ws", "<C-w>s") -- 打开竖向窗口
-keymap.set("n", "<C-q>", "<C-w>q") -- 打开竖向窗口
+-- keymap.set("n", "<leader>wp", "<C-w>p") -- 窗口跳转
+keymap.set("n", "<leader>wv", "<Cmd>vsplit<CR>") -- 打开横向窗口
+keymap.set("n", "<leader>ws", "<Cmd>split<CR>") -- 打开竖向窗口
+keymap.set("n", "<C-q>", "<Cmd>q<CR>") -- 打开竖向窗口
 
 keymap.set("n", "<C-t>c", ":tabnew<CR>")                     -- open new tab
 keymap.set("n", "<C-t>q", ":tabclose<CR>")                   -- close current tab

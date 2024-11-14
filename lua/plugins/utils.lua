@@ -71,13 +71,13 @@ return {
     --     )
     --   end,
   },
-  {
-    -- 检查驼峰命名
-    "kamykn/spelunker.vim",
-    config = function()
-      vim.g.spelunker_check_type = 2
-    end
-  },
+  -- {
+  --   -- 检查驼峰命名
+  --   "kamykn/spelunker.vim",
+  --   config = function()
+  --     vim.g.spelunker_check_type = 2
+  --   end
+  -- },
   {
     -- markdown预览工具
     "ellisonleao/glow.nvim",
