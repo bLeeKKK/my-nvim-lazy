@@ -26,10 +26,10 @@ keymap.set("n", "x", '"_x')
 keymap.set("v", "p", '"_dP')
 
 -- Key mappings --
-keymap.set({ "n", "i", "v" }, "<Left>", "<Nop>")
-keymap.set({ "n", "i", "v" }, "<Right>", "<Nop>")
-keymap.set({ "n", "i", "v" }, "<Up>", "<Nop>")
-keymap.set({ "n", "i", "v" }, "<Down>", "<Nop>")
+-- keymap.set({ "n", "i", "v" }, "<Left>", "<Nop>")
+-- keymap.set({ "n", "i", "v" }, "<Right>", "<Nop>")
+-- keymap.set({ "n", "i", "v" }, "<Up>", "<Nop>")
+-- keymap.set({ "n", "i", "v" }, "<Down>", "<Nop>")
 
 -- keymap.set("n", "<C-b>n", ":BufferLineCycleNext<CR>")
 keymap.set("n", "<C-Tab>", ":BufferLineCycleNext<CR>")
@@ -38,8 +38,11 @@ keymap.set("n", "<C-S-Tab>", ":BufferLineCyclePrev<CR>")
 -- keymap.set('n', '<C-w>', '<Nop>', { noremap = true, silent = true }) -- 取消默认<C-w>
 --
 keymap.set("n", "<C-w>", ":Bdelete<CR>", { nowait = true }) -- 关闭当前buf
+keymap.set("n", "<leader>wo", ":BufferLineCloseOthers<CR>", { desc = "关闭其他buffer" }) -- 关闭其他
+keymap.set("n", "<leader>wx", ":Bdelete<CR>", { desc = "关闭当前buffer" }) -- 关闭其他
+keymap.set("n", "<leader>wa", ":bufdo :Bdelete<CR>", { desc = "关闭全部buffer" }) -- 关闭其他
 
-keymap.set("n", "<C-o>", ":BufferLineCloseOthers<CR>") -- 关闭全部
+-- keymap.set("n", "<C-o>", ":BufferLineCloseOthers<CR>") -- 关闭其他
 keymap.set("n", "<leader>p", ":BufferLinePick<CR>") -- pick切换
 keymap.set("n", "<leader>1", "<Cmd>BufferLineGoToBuffer 1<CR>") -- 跳转到窗口1
 keymap.set("n", "<leader>2", "<Cmd>BufferLineGoToBuffer 2<CR>") -- 跳转到窗口2

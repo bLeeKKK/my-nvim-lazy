@@ -1,4 +1,4 @@
-local opt = vim.opt                    -- for conciseness
+local opt = vim.opt -- for conciseness
 
 vim.g.copilot_proxy = "127.0.0.1:1087" -- vim.env.HTTPS_PROXY or vim.env.HTTP_PROXY
 print("Copilot代理：" .. vim.g.copilot_proxy)
@@ -8,12 +8,12 @@ vim.g.nightflyTransparent = true
 
 -- line numbers
 opt.relativenumber = true -- show relative line numbers
-opt.number = true         -- shows absolute line number on cursor line (when relative number is on)
+opt.number = true -- shows absolute line number on cursor line (when relative number is on)
 
 -- tabs & indentation
 -- opt.wtabstop = 2 -- 2 spaces for tabs (prettier default)
-opt.shiftwidth = 2    -- 2 spaces for indent width
-opt.expandtab = true  -- expand tab to spaces
+opt.shiftwidth = 2 -- 2 spaces for indent width
+opt.expandtab = true -- expand tab to spaces
 opt.autoindent = true -- copy indent from current line when starting new one
 
 -- line wrapping
@@ -21,7 +21,7 @@ opt.wrap = false -- disable line wrapping
 
 -- search settings
 opt.ignorecase = true -- ignore case when searching
-opt.smartcase = true  -- if you include mixed case in your search, assumes you want case-sensitive
+opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
 
 -- cursor line
 opt.cursorline = true -- highlight the current cursor line
@@ -32,7 +32,7 @@ opt.cursorline = true -- highlight the current cursor line
 -- (have to use iterm2 or any other true color terminal)
 opt.termguicolors = true
 opt.background = "dark" -- colorschemes that can be light or dark will be made dark
-opt.signcolumn = "yes"  -- show sign column so that text doesn't shift
+opt.signcolumn = "yes" -- show sign column so that text doesn't shift
 
 -- backspace
 opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
@@ -41,10 +41,14 @@ opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or 
 opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 
 -- split windows
-opt.splitright = true     -- split vertical window to the right
-opt.splitbelow = true     -- split horizontal window to the bottom
+opt.splitright = true -- split vertical window to the right
+opt.splitbelow = true -- split horizontal window to the bottom
 
 opt.iskeyword:append("-") -- consider string-string as whole word
+
+-- opt.list = true -- 启用空白字符可视化
+-- opt.listchars:append("space:⋅") -- 设置空格显示为点
+-- opt.listchars:append("trail:·") -- 设置行尾多余空格显示为点
 
 -- 定义匹配的字符对
 -- vim.o.matchpairs = vim.o.matchpairs .. ",<:>"
@@ -57,23 +61,35 @@ opt.iskeyword:append("-") -- consider string-string as whole word
 -- ]])
 -- lvim.builtin.treesitter.matchup.enable = true
 
-local _lazygit = nil
-_G._toggle_lazygit = function()
-  if vim.fn.executable("lazygit") then
-    if not _lazygit then
-      _lazygit = require("toggleterm.terminal").Terminal:new({
-        cmd = "lazygit",
-        direction = "float",
-        close_on_exit = true,
-        hidden = true,
+-- local _lazygit = nil
+-- _G._toggle_lazygit = function()
+-- 	if vim.fn.executable("lazygit") then
+-- 		if not _lazygit then
+-- 			_lazygit = require("toggleterm.terminal").Terminal:new({
+-- 				cmd = "lazygit",
+-- 				direction = "float",
+-- 				close_on_exit = true,
+-- 				hidden = true,
+--
+-- 				float_opts = {
+-- 					border = "double",
+-- 				},
+-- 			})
+-- 		end
+-- 		_lazygit:toggle()
+-- 	else
+-- 		vim.notify("Command [lazygit] not found!", vim.log.levels.ERROR, { title = "toggleterm.nvim" })
+-- 	end
+-- end
 
-        float_opts = {
-          border = "double",
-        },
-      })
-    end
-    _lazygit:toggle()
-  else
-    vim.notify("Command [lazygit] not found!", vim.log.levels.ERROR, { title = "toggleterm.nvim" })
-  end
+function _G.set_terminal_keymaps()
+	local opts = { buffer = 0 }
+
+	-- vim.keymap.set("t", "jk", [[<C-`><C-n>]], opts)
+	vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts)
+	vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
+	vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
+	vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts)
+	-- vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>]], opts)
 end
+vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
