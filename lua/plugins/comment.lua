@@ -15,5 +15,9 @@ return {
       -- for commenting tsx, jsx, svelte, html files
       pre_hook = ts_context_commentstring.create_pre_hook(),
     })
+
+    -- require("ts_context_commentstring").setup({
+    --   enable_autocmd = false,
+    -- })
   end,
 }
