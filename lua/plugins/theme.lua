@@ -15,6 +15,7 @@ return {
 
       require("tokyonight").setup({
         style = "night",
+        transparent = true, -- 启用透明背景
         on_colors = function(colors)
           colors.bg = bg
           colors.bg_dark = bg_dark

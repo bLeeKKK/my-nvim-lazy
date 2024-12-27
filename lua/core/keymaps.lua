@@ -31,6 +31,9 @@ keymap.set("v", "p", '"_dP')
 -- keymap.set({ "n", "i", "v" }, "<Up>", "<Nop>")
 -- keymap.set({ "n", "i", "v" }, "<Down>", "<Nop>")
 
+-- 清理cl进入插入模式
+-- keymap.set({ "n", "i", "v" }, "cl", "<Nop>")
+
 -- keymap.set("n", "<C-b>n", ":BufferLineCycleNext<CR>")
 keymap.set("n", "<C-Tab>", ":BufferLineCycleNext<CR>")
 -- keymap.set("n", "<C-b>p", ":BufferLineCyclePrev<CR>")
