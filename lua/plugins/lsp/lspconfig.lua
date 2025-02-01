@@ -140,6 +140,32 @@ return {
           },
         })
       end,
+      ["rust_analyzer"] = function()
+        -- Rust Analyzer 配置
+        lspconfig["rust_analyzer"].setup({
+          capabilities = capabilities,
+          settings = {
+            ["rust-analyzer"] = {
+              cargo = {
+                allFeatures = true, -- 启用所有的 Cargo 功能
+              },
+              checkOnSave = {
+                command = "clippy", -- 保存时运行 Clippy 检查
+              },
+              diagnostics = {
+                disabled = { "inactive-code" }, -- 关闭某些诊断
+              },
+            },
+          },
+          -- on_attach = function(client, bufnr)
+          --   -- 设置快捷键或其他初始化逻辑
+          --   local opts = { noremap = true, silent = true, buffer = bufnr }
+          --   vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+          --   vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+          --   vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+          -- end,
+        })
+      end,
     })
   end,
 }

@@ -1,4 +1,4 @@
--- 格式化工具，目前使用时只能格式化，无法启用lint
+-- 格式化工具，这里使用时只能格式化，无法启用lint
 
 return {
   "stevearc/conform.nvim",
