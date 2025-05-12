@@ -1,6 +1,6 @@
 local opt = vim.opt -- for conciseness
 
-vim.g.copilot_proxy = "127.0.0.1:1087" -- vim.env.HTTPS_PROXY or vim.env.HTTP_PROXY
+vim.g.copilot_proxy = "127.0.0.1:7890" -- vim.env.HTTPS_PROXY or vim.env.HTTP_PROXY
 print("Copilot代理：" .. vim.g.copilot_proxy)
 
 -- Lua initialization file
