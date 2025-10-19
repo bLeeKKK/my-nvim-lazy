@@ -9,3 +9,5 @@ else
   require("core.keymaps")
   require("core.im-select")
 end
+
+-- 获取当前时间
