@@ -247,7 +247,7 @@ return {
     vim.keymap.set({ "n", "x" }, "<C-x>", function()
       require("opencode").select()
     end, { desc = "Execute opencode action…" })
-    vim.keymap.set({ "n", "t" }, "<C-.>", function()
+    vim.keymap.set({ "n", "t" }, "<C-o>", function()
       require("opencode").toggle()
     end, { desc = "Toggle opencode" })
 
