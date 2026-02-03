@@ -12,7 +12,7 @@ return {
       panel = { enabled = false },
 
       -- 配置node版本
-      copilot_node_command = vim.fn.expand("$HOME") .. "/.nvm/versions/node/v20.18.1/bin/node", -- Node.js version must be > 18.x
+      copilot_node_command = vim.fn.expand("$HOME") .. "/.nvm/versions/node/v22.18.0/bin/node", -- Node.js version must be > 18.x
     })
   end,
 }
