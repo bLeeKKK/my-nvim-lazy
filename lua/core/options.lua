@@ -1,50 +1,50 @@
-local opt = vim.opt -- for conciseness
+local opt = vim.opt -- 为了简洁
 
-vim.g.copilot_proxy = "127.0.0.1:7890" -- vim.env.HTTPS_PROXY or vim.env.HTTP_PROXY
+vim.g.copilot_proxy = "127.0.0.1:7890" -- vim.env.HTTPS_PROXY 或 vim.env.HTTP_PROXY
 print("Copilot代理：" .. vim.g.copilot_proxy)
 
--- Lua initialization file
+-- Lua 初始化文件
 vim.g.nightflyTransparent = true
 
--- line numbers
-opt.relativenumber = true -- show relative line numbers
-opt.number = true -- shows absolute line number on cursor line (when relative number is on)
+-- 行号
+opt.relativenumber = true -- 显示相对行号
+opt.number = true -- 在光标行显示绝对行号（当相对行号启用时）
 
--- tabs & indentation
--- opt.wtabstop = 2 -- 2 spaces for tabs (prettier default)
-opt.shiftwidth = 2 -- 2 spaces for indent width
-opt.expandtab = true -- expand tab to spaces
-opt.autoindent = true -- copy indent from current line when starting new one
+-- 制表符和缩进
+-- opt.wtabstop = 2 -- 2 个空格表示制表符（prettier 默认）
+opt.shiftwidth = 2 -- 2 个空格表示缩进宽度
+opt.expandtab = true -- 将制表符扩展为空格
+opt.autoindent = true -- 开始新行时从当前行复制缩进
 
--- line wrapping
-opt.wrap = false -- disable line wrapping
+-- 行换行
+opt.wrap = false -- 禁用行换行
 
--- search settings
-opt.ignorecase = true -- ignore case when searching
-opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
+-- 搜索设置
+opt.ignorecase = true -- 搜索时忽略大小写
+opt.smartcase = true -- 如果搜索中包含混合大小写，则假定您需要区分大小写
 
--- cursor line
-opt.cursorline = true -- highlight the current cursor line
+-- 光标行
+opt.cursorline = true -- 高亮当前光标行
 
--- appearance
+-- 外观
 
--- turn on termguicolors for nightfly colorscheme to work
--- (have to use iterm2 or any other true color terminal)
+-- 启用 termguicolors 以使 nightfly 配色方案生效
+--（必须使用 iterm2 或其他真彩色终端）
 opt.termguicolors = true
--- opt.background = "light" -- colorschemes that can be light or dark will be made dark
-opt.signcolumn = "yes" -- show sign column so that text doesn't shift
+-- opt.background = "light" -- 配色方案可以是浅色或深色，将被设置为深色
+opt.signcolumn = "yes" -- 显示标志列，防止文本移动
 
--- backspace
-opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
+-- 退格键
+opt.backspace = "indent,eol,start" -- 允许在缩进、行尾或插入模式起始位置使用退格键
 
--- clipboard
-opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+-- 剪贴板
+opt.clipboard:append("unnamedplus") -- 使用系统剪贴板作为默认寄存器
 
--- split windows
-opt.splitright = true -- split vertical window to the right
-opt.splitbelow = true -- split horizontal window to the bottom
+-- 分割窗口
+opt.splitright = true -- 垂直窗口向右分割
+opt.splitbelow = true -- 水平窗口向下分割
 
-opt.iskeyword:append("-") -- consider string-string as whole word
+opt.iskeyword:append("-") -- 将 string-string 视为完整单词
 
 -- opt.list = true -- 启用空白字符可视化
 -- opt.listchars:append("space:⋅") -- 设置空格显示为点
@@ -57,7 +57,7 @@ opt.iskeyword:append("-") -- consider string-string as whole word
 -- vim.g.matchup_matchparen_deferred = {}
 -- -- 启用 % 键在匹配的字符对之间跳转
 -- vim.cmd([[
---   autocmd FileType * setlocal matchpairs+=%:
+-- autocmd FileType * setlocal matchpairs+=%:
 -- ]])
 -- lvim.builtin.treesitter.matchup.enable = true
 

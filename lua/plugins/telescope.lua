@@ -12,7 +12,7 @@ return {
     {
       "<leader>/",
       function()
-        -- You can pass additional configuration to telescope to change theme, layout, etc.
+        -- 您可以向 telescope 传递额外配置以更改主题、布局等。
         require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
           winblend = 10,
           previewer = false,
@@ -44,11 +44,11 @@ return {
     require("telescope").setup({
       extensions = {
         fzf = {
-          fuzzy = true, -- false will only do exact matching
-          override_generic_sorter = true, -- override the generic sorter
-          override_file_sorter = true, -- override the file sorter
-          case_mode = "smart_case", -- or "ignore_case" or "respect_case"
-          -- the default case_mode is "smart_case"
+          fuzzy = true, -- false 将仅进行精确匹配
+          override_generic_sorter = true, -- 覆盖通用排序器
+          override_file_sorter = true, -- 覆盖文件排序器
+          case_mode = "smart_case", -- 或 "ignore_case" 或 "respect_case"
+          -- 默认 case_mode 为 "smart_case"
         },
       },
     })

@@ -6,7 +6,7 @@ return {
     local todo_comments = require("todo-comments")
 
     -- set keymaps
-    local keymap = vim.keymap -- for conciseness
+    local keymap = vim.keymap -- 为了简洁
 
     keymap.set("n", "]t", function()
       todo_comments.jump_next()

@@ -9,13 +9,13 @@ return {
   },
   -- {
   --   -- 打开上次关闭的时候页面上的 buf
-  --   "folke/persistence.nvim",
-  --   config = function()
-  --     require("persistence").setup()
-  --     vim.keymap.set("n", "<leader>qs", [[<cmd>lua require("persistence").load()<cr>]])
-  --     vim.keymap.set("n", "<leader>ql", [[<cmd>lua require("persistence").load({ last = true})<cr>]])
-  --     vim.keymap.set("n", "<leader>qd", [[<cmd>lua require("persistence").stop()<cr>]])
-  --   end
+  -- "folke/persistence.nvim",
+  -- config = function()
+  -- require("persistence").setup()
+  -- vim.keymap.set("n", "<leader>qs", [[<cmd>lua require("persistence").load()<cr>]])
+  -- vim.keymap.set("n", "<leader>ql", [[<cmd>lua require("persistence").load({ last = true})<cr>]])
+  -- vim.keymap.set("n", "<leader>qd", [[<cmd>lua require("persistence").stop()<cr>]])
+  -- end
   -- },
   {
     -- 自动补全括号
@@ -41,42 +41,42 @@ return {
       { "J",        mode = { "o", "x" },   function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
       { "<c-s>",    mode = { "c" },        function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
     },
-    --   config = function()
-    --     require("flash").setup()
-    --     vim.keymap.set({ "n", "x", "o" }, "s",
-    --       function()
-    --         require("flash").jump({
-    --           search = {
-    --             mode = function(str)
-    --               return "\\<" .. str
-    --             end,
+    -- config = function()
+    -- require("flash").setup()
+    -- vim.keymap.set({ "n", "x", "o" }, "s",
+    -- function()
+    -- require("flash").jump({
+    -- search = {
+    -- mode = function(str)
+    -- return "\\<" .. str
+    -- end,
     --           },
     --         })
-    --       end
+    -- end
     --     )
-    --     vim.keymap.set({ "n", "x", "o" }, "S",
-    --       function()
-    --         require("flash").treesitter()
-    --       end
+    -- vim.keymap.set({ "n", "x", "o" }, "S",
+    -- function()
+    -- require("flash").treesitter()
+    -- end
     --     )
-    --     vim.keymap.set({ "o" }, "r",
-    --       function()
-    --         require("flash").remote()
-    --       end
+    -- vim.keymap.set({ "o" }, "r",
+    -- function()
+    -- require("flash").remote()
+    -- end
     --     )
-    --     vim.keymap.set({ "o", "x" }, "R",
-    --       function()
-    --         require("flash").treesitter_search()
-    --       end
+    -- vim.keymap.set({ "o", "x" }, "R",
+    -- function()
+    -- require("flash").treesitter_search()
+    -- end
     --     )
-    --   end,
+    -- end,
   },
   -- {
   --   -- 检查驼峰命名
-  --   "kamykn/spelunker.vim",
-  --   config = function()
-  --     vim.g.spelunker_check_type = 2
-  --   end
+  -- "kamykn/spelunker.vim",
+  -- config = function()
+  -- vim.g.spelunker_check_type = 2
+  -- end
   -- },
   {
     -- markdown预览工具
@@ -90,41 +90,41 @@ return {
   },
   -- {
   --   -- 注释
-  --   "numToStr/Comment.nvim",
-  --   dependencies = {
-  --     "JoosepAlviste/nvim-ts-context-commentstring",
+  -- "numToStr/Comment.nvim",
+  -- dependencies = {
+  -- "JoosepAlviste/nvim-ts-context-commentstring",
   --   },
-  --   config = function()
+  -- config = function()
   --     -- jsx tsx 补充注释
-  --     require("Comment").setup({
-  --       pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+  -- require("Comment").setup({
+  -- pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
   --     })
-  --   end,
+  -- end,
   -- },
   -- {
-  --   "echasnovski/mini.comment",
-  --   config = true,
+  -- "echasnovski/mini.comment",
+  -- config = true,
   -- },
   -- {
   --   -- nvim 窗口功能优化
-  --   "s1n7ax/nvim-window-picker",
-  --   config = function()
-  --     require("window-picker").setup({
-  --       filter_rules = {
-  --         include_current_win = true,
-  --         bo = {
-  --           filetype = { "fidget", "neo-tree", "NvimTree" }
+  -- "s1n7ax/nvim-window-picker",
+  -- config = function()
+  -- require("window-picker").setup({
+  -- filter_rules = {
+  -- include_current_win = true,
+  -- bo = {
+  -- filetype = { "fidget", "neo-tree", "NvimTree" }
   --         }
   --       }
   --     })
-  --     vim.keymap.set("n",
-  --       "<c-w>p",
-  --       function()
-  --         local window_number = require('window-picker').pick_window()
-  --         if window_number then vim.api.nvim_set_current_win(window_number) end
-  --       end
+  -- vim.keymap.set("n",
+  -- "<c-w>p",
+  -- function()
+  -- local window_number = require('window-picker').pick_window()
+  -- if window_number then vim.api.nvim_set_current_win(window_number) end
+  -- end
   --     )
-  --   end
+  -- end
   -- },
   {
     -- 窗口滚动更加平滑
@@ -273,18 +273,18 @@ return {
   },
   -- {
   --   -- p 粘贴增强版本
-  --   "inkarkat/vim-ReplaceWithRegister",
-  --   keys = {
-  --     -- "gr", "grr"
+  -- "inkarkat/vim-ReplaceWithRegister",
+  -- keys = {
+  -- -- "gr", "grr"
   --     { "gr", mode = { "n", "v" }, "<Plug>ReplaceWithRegister", desc = "粘贴模式" },
   --     { "grr", mode = { "n", "v" }, "<Plug>ReplaceWithRegisterVisual", desc = "粘贴整行" },
   --   },
-  --   -- config = function()
+  -- -- config = function()
   --   --   -- 可选：你可以在这里添加更多自定义配置
   --   --   -- 例如：映射快捷键到插入模式或特定模式
-  --   --   vim.api.nvim_set_keymap('n', 'gr', '<Plug>ReplaceWithRegister', { noremap = false, silent = true })
-  --   --   vim.api.nvim_set_keymap('x', 'gr', '<Plug>ReplaceWithRegisterVisual', { noremap = false, silent = true })
-  --   -- end,
+  -- --   vim.api.nvim_set_keymap('n', 'gr', '<Plug>ReplaceWithRegister', { noremap = false, silent = true })
+  -- --   vim.api.nvim_set_keymap('x', 'gr', '<Plug>ReplaceWithRegisterVisual', { noremap = false, silent = true })
+  -- -- end,
   --   lazy = true, -- 设置为延迟加载（按需加载）
   -- },
   { "jose-elias-alvarez/typescript.nvim" },

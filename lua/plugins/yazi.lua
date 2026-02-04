@@ -1,4 +1,4 @@
----@type LazySpec
+-- -@type LazySpec
 return {
   "mikavilpas/yazi.nvim",
   event = "VeryLazy",
@@ -23,7 +23,7 @@ return {
       desc = "恢复上次的Yazi缓存",
     },
   },
-  ---@type YaziConfig
+  -- -@type YaziConfig
   opts = {
     -- if you want to open yazi instead of netrw, see below for more info
     open_for_directories = false,

@@ -15,7 +15,7 @@ return {
     }
 
     -- lint.linters.eslint_d.args = {
-    -- 	"--fix",
+    -- "--fix",
     -- }
 
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

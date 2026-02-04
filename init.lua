@@ -1,6 +1,6 @@
 -- vim.loader.enable()
 if vim.g.vscode then
--- VSCode extension
+-- VSCode 扩展
 else
   require("config.lazy")
 

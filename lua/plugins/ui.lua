@@ -23,15 +23,15 @@ return {
         -- close_icon = '',
         left_trunc_marker = "",
         right_trunc_marker = "",
-        --- name_formatter can be used to change the buffer's label in the bufferline.
-        --- Please note some names can/will break the
-        --- bufferline so use this at your discretion knowing that it has
-        --- some limitations that will *NOT* be fixed.
+        -- - name_formatter can be used to change the buffer's label in the bufferline.
+        -- - Please note some names can/will break the
+        -- - bufferline so use this at your discretion knowing that it has
+        -- - some limitations that will *NOT* be fixed.
         -- name_formatter = function(buf)  -- buf contains a "name", "path" and "bufnr"
-        --   -- remove extension from markdown files for example
-        --   if buf.name:match('%.md') then
-        --     return vim.fn.fnamemodify(buf.name, ':t:r')
-        --   end
+        -- -- remove extension from markdown files for example
+        -- if buf.name:match('%.md') then
+        -- return vim.fn.fnamemodify(buf.name, ':t:r')
+        -- end
         -- end,
         max_name_length = 30,
         max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
@@ -44,19 +44,19 @@ return {
         end,
         -- NOTE: this will be called a lot so don't do any heavy processing here
         -- custom_filter = function(buf_number)
-        --   -- filter out filetypes you don't want to see
-        --   if vim.bo[buf_number].filetype ~= "<i-dont-want-to-see-this>" then
-        --     return true
-        --   end
-        --   -- filter out by buffer name
-        --   if vim.fn.bufname(buf_number) ~= "<buffer-name-I-dont-want>" then
-        --     return true
-        --   end
-        --   -- filter out based on arbitrary rules
-        --   -- e.g. filter out vim wiki buffer from tabline in your work repo
-        --   if vim.fn.getcwd() == "<work-repo>" and vim.bo[buf_number].filetype ~= "wiki" then
-        --     return true
-        --   end
+        -- -- filter out filetypes you don't want to see
+        -- if vim.bo[buf_number].filetype ~= "<i-dont-want-to-see-this>" then
+        -- return true
+        -- end
+        -- -- filter out by buffer name
+        -- if vim.fn.bufname(buf_number) ~= "<buffer-name-I-dont-want>" then
+        -- return true
+        -- end
+        -- -- filter out based on arbitrary rules
+        -- -- e.g. filter out vim wiki buffer from tabline in your work repo
+        -- if vim.fn.getcwd() == "<work-repo>" and vim.bo[buf_number].filetype ~= "wiki" then
+        -- return true
+        -- end
         -- end,
         offsets = {
           -- { filetype = "NvimTree", text = "", padding = 1 }
@@ -80,8 +80,8 @@ return {
         enforce_regular_tabs = true,
         always_show_bufferline = true,
         -- sort_by = 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
-        --   -- add custom logic
-        --   return buffer_a.modified > buffer_b.modified
+        -- -- add custom logic
+        -- return buffer_a.modified > buffer_b.modified
         -- end
       },
       highlights = {
@@ -95,9 +95,9 @@ return {
         },
 
         -- buffer_selected = {
-        --   fg = {attribute='fg',highlight='#ff0000'},
-        --   bg = {attribute='bg',highlight='#0000ff'},
-        --   gui = 'none'
+        -- fg = {attribute='fg',highlight='#ff0000'},
+        -- bg = {attribute='bg',highlight='#0000ff'},
+        -- gui = 'none'
         --   },
         buffer_visible = {
           fg = { attribute = "fg", highlight = "TabLine" },
@@ -113,8 +113,8 @@ return {
           bg = { attribute = "bg", highlight = "TabLine" },
         },
         -- close_button_selected = {
-        --   fg = {attribute='fg',highlight='TabLineSel'},
-        --   bg ={attribute='bg',highlight='TabLineSel'}
+        -- fg = {attribute='fg',highlight='TabLineSel'},
+        -- bg ={attribute='bg',highlight='TabLineSel'}
         --   },
 
         tab_selected = {
@@ -169,8 +169,8 @@ return {
           bg = { attribute = "bg", highlight = "Normal" },
         },
         -- separator_visible = {
-        --   fg = {attribute='bg',highlight='TabLine'},
-        --   bg = {attribute='bg',highlight='TabLine'}
+        -- fg = {attribute='bg',highlight='TabLine'},
+        -- bg = {attribute='bg',highlight='TabLine'}
         --   },
         indicator_selected = {
           fg = { attribute = "fg", highlight = "LspDiagnosticsDefaultHint" },
@@ -180,11 +180,11 @@ return {
     },
   },
   -- {
-  --   "lukas-reineke/indent-blankline.nvim",
-  --   main = "ibl",
-  --   ---@module "ibl"
-  --   ---@type ibl.config
-  --   opts = {},
+  -- "lukas-reineke/indent-blankline.nvim",
+  -- main = "ibl",
+  -- ---@module "ibl"
+  -- ---@type ibl.config
+  -- opts = {},
   -- },
   {
     "lewis6991/gitsigns.nvim",
@@ -226,7 +226,7 @@ return {
         col = 1,
       },
       -- yadm = {
-      --   enable = false,
+      -- enable = false,
       -- },
 
       on_attach = function(bufnr)

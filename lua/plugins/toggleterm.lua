@@ -37,8 +37,8 @@ return {
         vim.api.nvim_set_option_value("foldexpr", "0", { scope = "local" })
       end,
       -- highlights = {
-      --   FloatBorder = {
-      --     guifg = floatborder_hl,
+      -- FloatBorder = {
+      -- guifg = floatborder_hl,
       --   },
       -- },
       open_mapping = [[<C-`>]],

@@ -48,7 +48,7 @@ return {
       })
 
       -- set keymaps
-      local keymap = vim.keymap -- for conciseness
+      local keymap = vim.keymap -- 为了简洁
 
       keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "打开资源管理器" }) -- toggle file explorer
       keymap.set(
