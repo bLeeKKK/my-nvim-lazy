@@ -16,8 +16,8 @@ return {
       mode = { "n" },
       desc = "打开底部终端",
     },
-    { "<Esc>", "<C-\\><C-n>", mode = { "t" }, desc = "退出终端模式" },
-    { "<Esc><Esc>", "<C-\\><C-n><C-w>q", mode = { "t" }, desc = "关闭终端" },
+    -- { "<Esc>", "<C-\\><C-n>", mode = { "t" }, desc = "退出终端模式" },
+    -- { "<Esc>q", "<C-\\><C-n><C-w>q", mode = { "t" }, desc = "关闭终端" },
     { "<leader>gg", ":lua _toggle_lazygit()<CR>", desc = "打开Lazygit" },
   },
   opts = {
