@@ -3,12 +3,10 @@
 return {
   "akinsho/toggleterm.nvim",
   keys = {
-    { "<C-f>", "<Cmd>ToggleTerm direction=float<CR>", mode = { "n" }, desc = "打开浮动终端" },
-    { "<C-f>", "<Esc><Cmd>ToggleTerm direction=float<CR>", mode = { "i" }, desc = "打开浮动终端" },
-    -- { "<C-`>", "<Cmd>ToggleTerm direction=horizontal<CR>", mode = { "t" }, desc = "打开底部终端" },
+    { "<leader>tf", "<Cmd>ToggleTerm direction=float<CR>", mode = { "n" }, desc = "打开浮动终端" },
+    { "<leader>tf", "<C-\\><C-n><Cmd>ToggleTerm direction=float<CR>", mode = { "t" }, desc = "打开浮动终端" },
     {
-      "<C-`>",
-      -- "<Cmd>ToggleTerm direction=horizontal<CR>"
+      "<leader>tt",
       function()
         local term_number = vim.v.count > 0 and vim.v.count or 1 -- 如果没有输入数字，默认为 1
         vim.cmd(":" .. term_number .. "ToggleTerm direction=horizontal")
@@ -16,7 +14,7 @@ return {
       mode = { "n" },
       desc = "打开底部终端",
     },
-    { "<C-`>", "<C-\\><C-n>", mode = { "t" }, desc = "退出终端模式" },
+    { "<leader>tt", "<C-\\><C-n><Cmd>ToggleTerm direction=horizontal<CR>", mode = { "t" }, desc = "打开底部终端" },
     -- { "<Esc>q", "<C-\\><C-n><C-w>q", mode = { "t" }, desc = "关闭终端" },
     { "<leader>gg", ":lua _toggle_lazygit()<CR>", desc = "打开Lazygit" },
   },
@@ -41,7 +39,7 @@ return {
       -- guifg = floatborder_hl,
       --   },
       -- },
-      open_mapping = [[<C-`>]],
+      open_mapping = false,
       hide_numbers = true, -- hide the number column in toggleterm buffers
       shade_filetypes = {},
       shade_terminals = false,

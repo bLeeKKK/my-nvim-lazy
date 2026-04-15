@@ -67,7 +67,7 @@ keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "打开新的Tab" }) -
 keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "关闭当前Tab" }) -- close current tab
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "下一个Tab" }) -- go to next tab
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "上一个Tab" }) -- go to previous tab
-keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "在新Tab中打开当前的buffer" }) -- move current buffer to new tab
+keymap.set("n", "<leader>tF", "<cmd>tabnew %<CR>", { desc = "在新Tab中打开当前的buffer" }) -- move current buffer to new tab
 
 keymap.set("n", "<C-t>c", ":tabnew<CR>") -- open new tab
 keymap.set("n", "<C-t>q", ":tabclose<CR>") -- close current tab

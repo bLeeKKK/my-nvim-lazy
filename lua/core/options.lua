@@ -1,7 +1,8 @@
 local opt = vim.opt -- 为了简洁
 
-vim.g.copilot_proxy = "127.0.0.1:7890" -- vim.env.HTTPS_PROXY 或 vim.env.HTTP_PROXY
-print("Copilot代理：" .. vim.g.copilot_proxy)
+-- vim.g.copilot_proxy = "127.0.0.1:7890" -- 禁用 Copilot 代理以避免认证错误
+-- vim.g.copilot_proxy = "127.0.0.1:7890" -- vim.env.HTTPS_PROXY 或 vim.env.HTTP_PROXY
+-- print("Copilot代理：" .. vim.g.copilot_proxy)
 
 -- Lua 初始化文件
 vim.g.nightflyTransparent = true

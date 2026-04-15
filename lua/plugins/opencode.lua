@@ -1,16 +1,16 @@
 ---@type LazySpec
 return {
-  "NickvanDyke/opencode.nvim",
-  version = "*", -- 安装最新稳定版
+  "nickjvandyke/opencode.nvim",
+  version = "*", -- Latest stable release
   dependencies = {
     {
-      -- 推荐集成 `snacks.nvim`，但不是必须
-      ---@module "snacks" <- 加载 `snacks.nvim` 类型，提供配置补全提示
+      -- `snacks.nvim` integration is recommended, but optional
+      ---@module "snacks" <- Loads `snacks.nvim` types for configuration intellisense
       "folke/snacks.nvim",
       optional = true,
       opts = {
-        input = {}, -- 增强 `ask()` 体验
-        picker = { -- 增强 `select()` 体验
+        input = {}, -- Enhances `ask()`
+        picker = { -- Enhances `select()`
           actions = {
             opencode_send = function(...)
               return require("opencode").snacks_picker_send(...)
@@ -28,26 +28,29 @@ return {
     },
   },
   config = function()
-    -- 👇 这就是 opencode.nvim 的配置点
+    -- Set required environment variable for opencode authentication
+    -- vim.env.OPENCODE_SERVER_PASSWORD = "0p9o8i7u6y"
+
     ---@type opencode.Opts
     vim.g.opencode_opts = {
-      -- 在这里填你的自定义配置（看 README 或类型定义）
-      -- 例如 server 启动命令、自定义 prompts、contexts 等
       server = {
-        -- start = function()
-        --   local cmd = "opencode serve --port 4096"
-        --   require("opencode.terminal").open(cmd, {
-        --     win = { position = "bottom", enter = false },
-        --   })
-        -- end,
-        -- stop = function()
-        --   require("opencode").stop()
-        -- end,
-        -- toggle = function()
-        --   require("opencode").toggle()
-        -- end,
+        port = nil,
+        start = function()
+          require("opencode.terminal").open("opencode --port", {
+            split = "right",
+            width = math.floor(vim.o.columns * 0.75),
+          })
+        end,
+        stop = function()
+          require("opencode.terminal").close()
+        end,
+        toggle = function()
+          require("opencode.terminal").toggle("opencode --port", {
+            split = "right",
+            width = math.floor(vim.o.columns * 0.75),
+          })
+        end,
       },
-      -- contexts = { ... },
       prompts = {
         diagnostics = { prompt = "解释 @diagnostics", submit = true },
         diff = { prompt = "请审查下面的 git diff，检查其正确性与可读性：@diff", submit = true },
@@ -59,17 +62,13 @@ return {
         review = { prompt = "审查 @this 的正确性与可读性", submit = true },
         test = { prompt = "为 @this 添加测试", submit = true },
       },
-      -- ask = { ... },
-      -- select = { ... },
-      -- lsp = { enabled = true, ... },
-      -- events = { enabled = true, ... },
     }
 
-    -- 需要 autoread 才能正确处理外部修改
-    vim.o.autoread = true
+    vim.o.autoread = true -- Required for `opts.events.reload`
 
-    -- 👇 推荐的快捷键（可改成你喜欢的布局）
     local map = vim.keymap.set
+
+    -- Recommended/example keymaps
     map({ "n", "x" }, "<leader>oa", function()
       require("opencode").ask("@this: ", { submit = true })
     end, { desc = "向 opencode 询问当前选区或光标内容" })
@@ -90,15 +89,15 @@ return {
       return require("opencode").operator("@this ") .. "_"
     end, { desc = "将当前行添加到 opencode", expr = true })
 
-    -- 滚动 opencode 窗口
-    -- map("n", "<S-C-u>", function()
-    --   require("opencode").command("session.half.page.up")
-    -- end, { desc = "向上滚动 opencode 窗口" })
-    -- map("n", "<S-C-d>", function()
-    --   require("opencode").command("session.half.page.down")
-    -- end, { desc = "向下滚动 opencode 窗口" })
+    map("n", "<S-C-u>", function()
+      require("opencode").command("session.half.page.up")
+    end, { desc = "Scroll opencode up" })
+    map("n", "<S-C-d>", function()
+      require("opencode").command("session.half.page.down")
+    end, { desc = "Scroll opencode down" })
 
-    -- map("n", "+", "<C-a>", { desc = "增加光标下的数值", noremap = true })
-    -- map("n", "-", "<C-x>", { desc = "减少光标下的数值", noremap = true })
+    -- You may want these if you use the opinionated `<C-a>` and `<C-x>` keymaps above — otherwise consider `<leader>o…` (and remove terminal mode from the `toggle` keymap)
+    map("n", "+", "<C-a>", { desc = "Increment under cursor", noremap = true })
+    map("n", "-", "<C-x>", { desc = "Decrement under cursor", noremap = true })
   end,
 }

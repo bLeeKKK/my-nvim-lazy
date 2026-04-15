@@ -1,0 +1,14 @@
+{
+  "lockfileVersion": 1,
+  "configVersion": 1,
+  "workspaces": {
+    "": {
+      "dependencies": {
+        "@code-yeongyu/comment-checker": "^0.7.0",
+      },
+    },
+  },
+  "packages": {
+    "@code-yeongyu/comment-checker": ["@code-yeongyu/comment-checker@0.7.0", "https://mirrors.cloud.tencent.com/npm/@code-yeongyu/comment-checker/-/comment-checker-0.7.0.tgz", { "os": [ "linux", "win32", "darwin", ], "cpu": [ "x64", "arm64", ], "bin": { "comment-checker": "bin/comment-checker" } }, "sha512-AOic1jPHY3CpNraOuO87YZHO3uRzm9eLd0wyYYN89/76Ugk2TfdUYJ6El/Oe8fzOnHKiOF0IfBeWRo0IUjrHHg=="],
+  }
+}
