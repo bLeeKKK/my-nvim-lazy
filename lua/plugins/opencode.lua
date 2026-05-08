@@ -28,14 +28,57 @@ return {
     },
   },
   config = function()
-    -- Set required environment variable for opencode authentication
-    -- vim.env.OPENCODE_SERVER_PASSWORD = "0p9o8i7u6y"
+    -- local opencode_port = 4317
+    local opencode_env_names = { "LB_API_KEY", "CHANGHONG_API_KEY", "OPENCODE_SERVER_PASSWORD" }
+
+    local function sync_opencode_env_from_shell()
+      local shell = vim.env.SHELL or "/bin/zsh"
+      local script = [[
+for name in LB_API_KEY CHANGHONG_API_KEY OPENCODE_SERVER_PASSWORD; do
+  value=$(printenv "$name")
+  if [ -n "$value" ]; then
+    printf '%s=%s\n' "$name" "$value"
+  fi
+done
+]]
+
+      local output = vim.fn.system({ shell, "-lc", script })
+      if vim.v.shell_error ~= 0 then
+        return false
+      end
+
+      for line in output:gmatch("[^\r\n]+") do
+        local name, value = line:match("^(.-)=(.*)$")
+        if name and value and value ~= "" then
+          vim.env[name] = value
+        end
+      end
+
+      for _, name in ipairs(opencode_env_names) do
+        if vim.env[name] and vim.env[name] ~= "" then
+          return true
+        end
+      end
+
+      return false
+    end
+
+    local function ensure_opencode_env()
+      for _, name in ipairs(opencode_env_names) do
+        if vim.env[name] and vim.env[name] ~= "" then
+          return true
+        end
+      end
+
+      return sync_opencode_env_from_shell()
+    end
 
     ---@type opencode.Opts
     vim.g.opencode_opts = {
       server = {
         port = nil,
         start = function()
+          ensure_opencode_env()
           require("opencode.terminal").open("opencode --port", {
             split = "right",
             width = math.floor(vim.o.columns * 0.75),
@@ -45,6 +88,7 @@ return {
           require("opencode.terminal").close()
         end,
         toggle = function()
+          ensure_opencode_env()
           require("opencode.terminal").toggle("opencode --port", {
             split = "right",
             width = math.floor(vim.o.columns * 0.75),
