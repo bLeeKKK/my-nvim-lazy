@@ -1,4 +1,11 @@
 ---@type LazySpec
+local terminal_opts = {
+  win = {
+    position = "right",
+    width = 0.35,
+  },
+}
+
 return {
   "nickjvandyke/opencode.nvim",
   version = "*", -- Latest stable release
@@ -45,7 +52,8 @@ return {
     end, { desc = "打开 opencode 操作菜单" })
 
     map("n", "<leader>oo", function()
-      require("opencode").toggle()
+      -- require("opencode").toggle()
+      require("snacks.terminal").toggle("opencode --port", terminal_opts)
     end, { desc = "切换 opencode 终端窗口" })
 
     -- operator 用法：在可视模式下将选区内容发送给 opencode
